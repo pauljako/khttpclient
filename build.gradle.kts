@@ -34,6 +34,7 @@ gitVersioning.apply {
 
 repositories {
     mavenCentral()
+    google()
 }
 
 kotlin {
