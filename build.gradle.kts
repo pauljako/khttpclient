@@ -44,18 +44,19 @@ kotlin {
         browser()
     }
 
-    //if (HostManager.hostIsMac) {
-        iosX64()
-        iosArm64()
-        iosSimulatorArm64()
-        macosX64()
-        macosArm64()
-    //}
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    macosX64()
+    macosArm64()
 
     linuxX64()
     linuxArm64()
     mingwX64()
-    wasmJs()
+    wasmJs() {
+        binaries.library()
+        browser()
+    }
 
     sourceSets {
         val ktorVersion = "3.3.2"
