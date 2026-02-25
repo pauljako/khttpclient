@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.konan.target.HostManager
 
 plugins {
@@ -41,16 +44,18 @@ kotlin {
         browser()
     }
 
-    if (HostManager.hostIsMac) {
+    //if (HostManager.hostIsMac) {
         iosX64()
         iosArm64()
         iosSimulatorArm64()
         macosX64()
         macosArm64()
-    }
+    //}
 
     linuxX64()
+    linuxArm64()
     mingwX64()
+    wasmJs()
 
     sourceSets {
         val ktorVersion = "3.3.2"
