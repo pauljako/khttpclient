@@ -17,6 +17,7 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
     id("com.vanniktech.maven.publish") version "0.34.0"
     id("me.qoomon.git-versioning") version "6.4.4"
+    id("com.android.library") version "8.11.2"
 }
 
 group = "work.socialhub"
@@ -57,6 +58,8 @@ kotlin {
         binaries.library()
         browser()
     }
+
+    androidTarget()
 
     sourceSets {
         val ktorVersion = "3.3.2"
@@ -178,5 +181,10 @@ signing {
     if (project.hasProperty("mavenCentralUsername") ||
         System.getenv("ORG_GRADLE_PROJECT_mavenCentralUsername") != null
     ) useGpgCmd()
+}
+
+android {
+    namespace = "${group}.khttpclient"
+    compileSdk = 36
 }
 
