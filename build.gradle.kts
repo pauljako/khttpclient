@@ -97,6 +97,11 @@ kotlin {
             implementation("io.ktor:ktor-client-winhttp:${ktorVersion}")
         }
 
+        // for Android
+        androidMain.dependencies {
+            implementation("io.ktor:ktor-client-okhttp:${ktorVersion}")
+        }
+
         // for test
         commonTest.dependencies {
             implementation(kotlin("test"))
